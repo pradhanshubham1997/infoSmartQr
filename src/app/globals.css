@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #6366f1;
+  --color-secondary-foreground: #ffffff;
+
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #ffffff;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #020617;
+
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #020617;
+  }
+
+  .dark {
+    --background: #020617;
+    --foreground: #f8fafc;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+  }
+  
+  .glass-dark {
+    @apply bg-slate-900/70 backdrop-blur-md border border-slate-700/30 shadow-xl;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-50 via-indigo-50 to-violet-50;
+  }
+
+  .gradient-button {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-300;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-foreground bg-background antialiased;
+}
