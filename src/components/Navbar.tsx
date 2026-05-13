@@ -7,7 +7,11 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GOOGLE_FORM_URL } from "@/lib/constants";
 
-export const Navbar = () => {
+interface NavbarProps {
+  isDark?: boolean;
+}
+
+export const Navbar = ({ isDark = false }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -20,10 +24,10 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: "Demo", href: "/demo" },
     { name: "How it Works", href: "#how-it-works" },
     { name: "Features", href: "#features" },
     { name: "Pricing", href: "#pricing" },
-    { name: "About", href: "#about" },
   ];
 
   return (
@@ -53,7 +57,11 @@ export const Navbar = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+              className={cn(
+                "text-sm font-medium transition-colors",
+                isScrolled ? "text-slate-600 hover:text-blue-600" : 
+                isDark ? "text-white/80 hover:text-white" : "text-slate-600 hover:text-blue-600"
+              )}
             >
               {link.name}
             </Link>

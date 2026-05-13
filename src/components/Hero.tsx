@@ -47,10 +47,13 @@ export const Hero = () => {
               Get Your QR Now
               <ArrowRight size={20} />
             </Link>
-            <button className="bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-700 px-8 py-4 rounded-full text-lg font-bold transition-all flex items-center justify-center gap-2">
+            <Link 
+              href="/demo"
+              className="bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 text-slate-700 px-8 py-4 rounded-full text-lg font-bold transition-all flex items-center justify-center gap-2"
+            >
               <QrCode size={20} />
               See Demo
-            </button>
+            </Link>
           </div>
 
           <div className="flex items-center gap-4 text-sm text-slate-500 pt-2">
